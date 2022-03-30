@@ -12,6 +12,7 @@ import {
 } from "../constants/orderConstants";
 import { createOrder, updateOrder } from "../actions/orderActions";
 import Message from "../components/Message";
+import { USER_PROFILE_RESET } from "../constants/userConstants";
 
 const ShippingScreen = () => {
   const [address, setAddress] = useState("");
@@ -31,10 +32,9 @@ const ShippingScreen = () => {
   const { order: detailsOrder } = orderDetails;
 
   useEffect(() => {
-    if (!profile) {
+    if (!profile || profile.cartItems.length === 0) {
       dispatch(getUserProfile());
-    }
-    if (profile) {
+    } else {
       setAddress(profile.shippingAddress.address);
       setState(profile.shippingAddress.state);
       setCity(profile.shippingAddress.city);
@@ -42,7 +42,7 @@ const ShippingScreen = () => {
       setCountry(profile.shippingAddress.country);
     }
 
-    if (order) {
+    if (order && !detailsOrder) {
       navigate(`/order/${order._id}`);
     }
   }, [dispatch, profile, order]);

@@ -125,7 +125,7 @@ app.post("/send_thankyou", cors(), async (req, res) => {
 
   sendEmail({
     subject: "Your eCo order has been received!",
-    to: process.env.EMAIL,
+    to: req.body.order.email,
     from: process.env.EMAIL,
     html:
       `<div class="email">
