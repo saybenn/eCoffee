@@ -1,7 +1,6 @@
 {
   "name": "new-eco",
   "version": "1.0.0",
-    "homepage": "https://ecoffee22.com",
   "description": "Coffee eCommerce & Blog",
   "main": "server.js",
   "type": "module",
