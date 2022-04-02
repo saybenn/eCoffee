@@ -9,7 +9,6 @@
 /coverage
 
 # production
-/build
 /frontend/node_modules
 
 # misc
