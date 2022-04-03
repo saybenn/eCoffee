@@ -91,11 +91,12 @@ app.post("/send_mail", cors(), async (req, res) => {
 
   sendEmail({
     subject: req.body.subject,
-    to: process.env.TO_EMAIL,
+    to: process.env.EMAIL,
     from: req.body.email,
     html: `<div class="email">
   <div style="background: #333; padding: 1.5rem; color: white;"class="heading"><h2>${req.body.name} has sent you a message form eCo Coffee Shop</h2></div>
-  <div style="padding: .5rem 2rem 2rem; border: 1px solid #333; background: white;" class="body"><p>${req.body.text}</p></div></div>`,
+  <div style="padding: .5rem 2rem 2rem; border: 1px solid #333; background: white;" class="body"><p>${req.body.text}</p>
+  <p>${req.body.email}</p></div></div>`,
   });
 });
 
