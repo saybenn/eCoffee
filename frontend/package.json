@@ -2,7 +2,6 @@
   "name": "ecoffee",
   "proxy": "http://127.0.0.1:5000",
   "version": "0.1.0",
-  "homepage": "https://www.ecoffee22.com/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",

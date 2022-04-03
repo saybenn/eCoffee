@@ -14,7 +14,7 @@ const ContactScreen = () => {
   const handleSend = async () => {
     setSent(true);
     try {
-      await axios.post("http://localhost:3000/send_mail", {
+      await axios.post("/send_mail", {
         name,
         text,
         email,

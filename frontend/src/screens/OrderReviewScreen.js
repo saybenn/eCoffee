@@ -45,7 +45,7 @@ const OrderScreen = () => {
   const receiptHandler = async () => {
     setSent(true);
     try {
-      await axios.post("http://localhost:3000/send_thankyou", {
+      await axios.post("/send_thankyou", {
         order,
       });
     } catch (error) {
