@@ -114,7 +114,7 @@ const ProfileScreen = () => {
             <Message variant="alert">Profile Successfully Updated!</Message>
           )}
           {profile && (
-            <Col md={4}>
+            <Col className="mb-3" md={4}>
               <h2>User Profile</h2>
               <Card className="p-3">
                 <Form onSubmit={submitHandler}>

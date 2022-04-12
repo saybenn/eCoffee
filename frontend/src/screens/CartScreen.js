@@ -47,69 +47,71 @@ const CartScreen = () => {
         {error && <Message variant="danger">{error}</Message>}
         {cartItems && cartItems.length > 0 && (
           <Row>
-            <Col md={9}>
+            <Col xs={12} md={9}>
               <Card>
-                <ListGroup variant="flush">
-                  {cartItems.map((item) => (
-                    <ListGroup.Item key={item._id}>
-                      <Row className="d-flex justify-content-between align-items-center">
-                        <Col md={2}>
-                          <Image
-                            src={item.image}
-                            alt={item.name}
-                            fluid
-                            rounded
-                            sm={1}
-                          />
-                        </Col>
-                        <Col md={2}>
-                          <Link to={`/product/${item.productId}`}>
-                            {item.name}
-                          </Link>
-                        </Col>
-                        <Col md={1}>${item.price}</Col>
-                        <Col md={1}>
-                          <Row className="d-flex justify-content-center align-items-center">
-                            <Col md={1}>{item.qty}</Col>
+                {cartItems.map((item) => (
+                  <Row
+                    key={item._id}
+                    className="cart-item d-flex  align-items-center mb-1"
+                  >
+                    <Col xs={1} md={2}>
+                      <Image
+                        className="p-1"
+                        src={item.image}
+                        alt={item.name}
+                        fluid
+                        rounded
+                      />
+                    </Col>
+                    <Col xs={3} md={2}>
+                      <Link to={`/product/${item.productId}`}>{item.name}</Link>
+                    </Col>
+                    <Col xs={2} md={1}>
+                      ${item.price}
+                    </Col>
 
-                            <Col md={1}>
-                              {" "}
-                              <Button
-                                variant="link"
-                                onClick={() =>
-                                  dispatch(controlCart(item._id, "up"))
-                                }
-                              >
-                                <i className="fas fa-sort-up"></i>
-                              </Button>{" "}
-                              <Button
-                                variant="link"
-                                onClick={() =>
-                                  dispatch(controlCart(item._id, "down"))
-                                }
-                              >
-                                <i className="fas fa-sort-down"></i>
-                              </Button>
-                            </Col>
-                          </Row>
-                        </Col>
-                        <Col className="d-flex justify-content-center" md={2}>
-                          ${item.totalPrice.toFixed(2)}
-                        </Col>
-                        <Col md={1}>
-                          {" "}
-                          <Button
-                            onClick={() =>
-                              dispatch(controlCart(item._id, "trash"))
-                            }
-                          >
-                            <i className="fas fa-trash-alt"></i>
-                          </Button>
-                        </Col>
-                      </Row>
-                    </ListGroup.Item>
-                  ))}
-                </ListGroup>
+                    <Col
+                      className="d-flex align-items-center justify-space-between"
+                      xs={2}
+                      md={1}
+                    >
+                      <strong>Qty:</strong>
+                      {item.qty}
+                      <Col xs={1} md={1}>
+                        <Button
+                          variant="link"
+                          onClick={() => dispatch(controlCart(item._id, "up"))}
+                        >
+                          <i className="fas fa-sort-up"></i>
+                        </Button>{" "}
+                        <Button
+                          variant="link"
+                          onClick={() =>
+                            dispatch(controlCart(item._id, "down"))
+                          }
+                        >
+                          <i className="fas fa-sort-down"></i>
+                        </Button>
+                      </Col>
+                    </Col>
+
+                    <Col
+                      className="d-flex justify-content-center"
+                      xs={2}
+                      md={2}
+                    >
+                      ${item.totalPrice.toFixed(2)}
+                    </Col>
+                    <Col xs={1} md={1}>
+                      {" "}
+                      <Button
+                        onClick={() => dispatch(controlCart(item._id, "trash"))}
+                      >
+                        <i className="fas fa-trash-alt"></i>
+                      </Button>
+                    </Col>
+                  </Row>
+                ))}
               </Card>
             </Col>
 

@@ -110,8 +110,10 @@ const editBlogPost = asyncHandler(async (req, res) => {
 //@access User
 const likePost = asyncHandler(async (req, res) => {
   const { id } = req.body;
+  console.log(id);
   const user = await User.findById(req.user._id);
   const post = await Blog.findById(id);
+  console.log(post);
   if (post) {
     const alreadyLiked = post.likes.find(
       (l) => l.userid.toString() === user._id.toString()

@@ -30,7 +30,7 @@ const TopProductsCarousel = () => {
     >
       {products.map((product) => {
         return (
-          <Carousel.Item key={product._id}>
+          <Carousel.Item interval={5000} key={product._id}>
             <Link className="d-flex" to={`/product/${product._id}`}>
               <Col md={4}>
                 <Image src={product.image} alt={product.name} fluid />

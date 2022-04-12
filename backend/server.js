@@ -126,12 +126,12 @@ app.post("/send_thankyou", cors(), async (req, res) => {
 
   sendEmail({
     subject: "Your eCo order has been received!",
-    to: req.body.order.email,
+    to: process.env.EMAIL,
     from: process.env.EMAIL,
     html:
       `<div class="email">
   <div style="background: #333; padding: 1.5rem; color: white;"class="heading"><h2>Thanks for shopping with us!</h2></div>
-  <div style="padding: .5rem 2rem 2rem; border: 1px solid #333; background: white;" class="body"><h4>Hi ${req.body.order.customerName},</h4>
+  <div style="padding: .5rem 2rem 2rem; border: 1px solid #333; background: white;" class="body"><h4>Hi ${req.body.order.user.name},</h4>
     <p>We've received your order and it's now being processed.</p>
   <h3 style="color: #333">Order #${req.body.order._id}</h3>
 <table style="width:65%; border: 1px solid #333; border-collapse: collapse;">
@@ -164,12 +164,12 @@ app.post("/send_thankyou", cors(), async (req, res) => {
   <div class="shipping">
     <h3>Shipping Address</h3>
     <div style="border: 1px solid #333; padding: .1rem;">
-      <p>${req.body.order.customerName}<br>${
+      <p>${req.body.order.user.name}<br>${
         req.body.order.shippingAddress.address
       }<br>${req.body.order.shippingAddress.city}, ${
         req.body.order.shippingAddress.state
       } ${req.body.order.shippingAddress.postalCode}<br>${
-        req.body.order.email
+        req.body.order.user.email
       }</p>
     </div>
   </div>

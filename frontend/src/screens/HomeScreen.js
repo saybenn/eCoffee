@@ -48,7 +48,7 @@ const HomeScreen = () => {
     <>
       <HorizontalCarousel />
       <Container>
-        <hr className="my-5 styletwo" />
+        <hr className="my-5" />
         <Row className="d-flex align-items-center justify-content-between my-5">
           <Col md={8}>
             <h1 className="mt-5 mb-3">Featured Products</h1>
@@ -62,14 +62,14 @@ const HomeScreen = () => {
             </div>
             <h2 className="text-center my-3">Who We Are</h2>
             <p className="mission-statement align-items-end">
-              Our mission at eCo is not only to introduce customers to
-              environmentally friendly goods for all their coffee needs, but
-              also host a space for writers of all backgrounds to express and
-              share their thoughts and passion with others.{" "}
+              Our mission at eCo is to introduce customers to environmentally
+              friendly goods for all their coffee needs and host a space for
+              writers of all backgrounds to express and share their thoughts and
+              passion with others.{" "}
             </p>
           </Col>
         </Row>
-        <hr className="my-5 style-two" />
+        <hr className="my-5" />
 
         {blogLoading ? (
           <Loader />
