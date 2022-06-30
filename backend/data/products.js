@@ -3,7 +3,7 @@ const products = [
     name: "Ground Hounds Sunrise Roast",
     image: "/images/blacksilk.jpg",
     description:
-      "Light brown coffee beans that bring a subtle cup of a coffee akin to that of toasted grain with a matte surface.",
+      "A light brown coffee beans that bring a subtle cup of a coffee akin to that of toasted grain with a matte surface.",
     brand: "Ground Hounds",
     category: "Coffee",
     price: 27.99,
