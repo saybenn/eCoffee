@@ -87,7 +87,7 @@ const ProductScreen = () => {
   return (
     <>
       <Container>
-        <Link to="/shop" type="button" className="btn btn-dark my-3">
+        <Link to="/shop" className="btn btn-dark my-3">
           Back
         </Link>
         {message && <Message variant="info">{message}</Message>}
@@ -95,7 +95,7 @@ const ProductScreen = () => {
         {error && <Message variant="danger">{error}</Message>}
         {product && (
           <>
-            <Row className="d-flex ">
+            <Row className="flex ">
               <Col md={5}>
                 <Image
                   src={product.image}
@@ -109,7 +109,7 @@ const ProductScreen = () => {
                 />{" "}
               </Col>
 
-              <Col md={4}>
+              <Col md={6}>
                 <Card>
                   <Card.Body>
                     <Card.Title>
@@ -122,12 +122,16 @@ const ProductScreen = () => {
                   </Card.Body>
                   <ListGroupItem>
                     <Row className="mt-2 align-items-center">
-                      <Col md={5}>
+                      <Col sm={product.optionName ? 3 : 5} md={5}>
                         <strong>Status:</strong>{" "}
                         {product.countInStock > 0 ? "In Stock" : "Out of Stock"}
                       </Col>
                       {product.optionName && (
-                        <Col md={7} className="d-flex align-items-center">
+                        <Col
+                          md={7}
+                          sm={3}
+                          className="d-flex align-items-center xs:my-5"
+                        >
                           <strong className="mx-1">{`${product.optionName}: `}</strong>
 
                           <Form.Control
@@ -145,9 +149,7 @@ const ProductScreen = () => {
                           </Form.Control>
                         </Col>
                       )}
-                    </Row>
-                    <Row className="my-3 align-items-center">
-                      <Col className="d-flex align-items-center" md={5}>
+                      <Col className=" flex items-center" md={5} sm={3}>
                         <strong className="mx-1">Qty:</strong>{" "}
                         <Form.Control
                           className="m-0"
@@ -162,9 +164,14 @@ const ProductScreen = () => {
                           ))}
                         </Form.Control>
                       </Col>
-                      <Col md={7}>
+                      <Col
+                        xl={product.optionName ? 7 : 3}
+                        md={7}
+                        sm={product.optionName ? 3 : 4}
+                        className="sm:my-3 xs:my-5 flex-col items-center justify-center"
+                      >
                         <Button
-                          className="btn btn-dark w-100"
+                          className=" btn btn-dark w-100"
                           onClick={addToCartHandler}
                           disabled={product.countInStock === 0}
                         >
@@ -177,7 +184,7 @@ const ProductScreen = () => {
               </Col>
             </Row>
             <Row>
-              <Col md={7}>
+              <Col md={11} sm={12}>
                 <h2 className="my-3">Reviews</h2>
                 {product.reviews.length === 0 ? (
                   <Message variant="info">No Reviews</Message>

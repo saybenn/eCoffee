@@ -31,20 +31,24 @@ const TopProductsCarousel = () => {
       {products.map((product) => {
         return (
           <Carousel.Item interval={5000} key={product._id}>
-            <Link className="d-flex" to={`/product/${product._id}`}>
-              <Col md={4}>
+            <Link
+              className="flex justify-between"
+              to={`/product/${product._id}`}
+            >
+              <Col md={5}>
                 <Image src={product.image} alt={product.name} fluid />
               </Col>
-              <Col className="carousel-right d-flex align-items-center" md={8}>
-                <div>
-                  <h2>{product.name}</h2>
-                  <h4>${product.price}</h4>
-                  <p>{product.description}</p>
-                  <Rating
-                    value={product.rating}
-                    text={`${product.numReviews} reviews`}
-                  />
-                </div>
+              <Col
+                className="carousel-right flex flex-col justify-center"
+                md={7}
+              >
+                <h2 className="font-semibold text-2xl">{product.name}</h2>
+                <h4 className="font-medium text-xl mt-1 ">${product.price}</h4>
+                <p className="my-2 text-xl">{product.description}</p>
+                <Rating
+                  value={product.rating}
+                  text={`${product.numReviews} reviews`}
+                />
               </Col>
             </Link>
           </Carousel.Item>

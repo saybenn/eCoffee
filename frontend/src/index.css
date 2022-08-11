@@ -1,5 +1,12 @@
+@tailwind components;
+@tailwind utilities;
+
 * {
   box-sizing: border-box;
+}
+
+button {
+  background: none;
 }
 
 /* Header/Footer/Nav */
@@ -280,6 +287,7 @@ margin: .7rem;
   border-radius: 8px;
   width: 85%;
   background: rgb(142, 140, 132);
+  padding: 0;
 }
 
 .product-carousel img {
@@ -400,11 +408,9 @@ hr.style-two:before {
     font-size: .7rem;
   }
 
-  .card .cart-item .col-2.col-md-1 {
-    display: none;
-  }
 
-  .card .cart-item img {
+
+  .card .cart-item div a {
     display: none;
   }
 }

@@ -54,7 +54,7 @@ const CartScreen = () => {
                     key={item._id}
                     className="cart-item d-flex  align-items-center mb-1"
                   >
-                    <Col xs={1} md={2}>
+                    <Col xs={3} sm={3} md={3}>
                       <Image
                         className="p-1"
                         src={item.image}
@@ -63,21 +63,25 @@ const CartScreen = () => {
                         rounded
                       />
                     </Col>
-                    <Col xs={3} md={2}>
+                    <Col
+                      className="d-flex justify-content-center"
+                      xs={1}
+                      md={2}
+                    >
                       <Link to={`/product/${item.productId}`}>{item.name}</Link>
                     </Col>
-                    <Col xs={2} md={1}>
+                    {/* <Col xs={2} md={2}>
                       ${item.price}
-                    </Col>
+                    </Col> */}
 
                     <Col
-                      className="d-flex align-items-center justify-space-between"
-                      xs={2}
-                      md={1}
+                      className="d-flex align-items-center justify-content-center"
+                      xs={3}
+                      md={2}
                     >
                       <strong>Qty:</strong>
                       {item.qty}
-                      <Col xs={1} md={1}>
+                      <Col md={1}>
                         <Button
                           variant="link"
                           onClick={() => dispatch(controlCart(item._id, "up"))}
@@ -102,7 +106,11 @@ const CartScreen = () => {
                     >
                       ${item.totalPrice.toFixed(2)}
                     </Col>
-                    <Col xs={1} md={1}>
+                    <Col
+                      className="d-flex justify-content-center"
+                      xs={2}
+                      md={2}
+                    >
                       {" "}
                       <Button
                         onClick={() => dispatch(controlCart(item._id, "trash"))}

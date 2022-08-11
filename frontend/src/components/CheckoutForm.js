@@ -10,6 +10,7 @@ import {
 import { payOrder } from "../actions/orderActions";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Tippy from "@tippy.js/react";
 
 const CheckoutForm = ({ clientSecret, id }) => {
   //Hooks
@@ -77,7 +78,18 @@ const CheckoutForm = ({ clientSecret, id }) => {
 
   return (
     <Form id="payment-form" onSubmit={handleSubmit}>
-      <Form.Label as="legend">Stripe Secure Payments</Form.Label>
+      <Form.Label as="legend">
+        Stripe Secure Payments
+        <Tippy
+          content="Stripe Test Card Number is 4242 4242 4242 4242. Any Expiration date in the future is allowed, as is any CVC or Zip Code. Happy shopping!"
+          placement="top"
+          arrow={false}
+          delay={300}
+        >
+          <i className="fas fa-info-circle mx-1"></i>
+        </Tippy>
+      </Form.Label>
+
       <hr />
       <PaymentElement id="payment-element" />
       <Button

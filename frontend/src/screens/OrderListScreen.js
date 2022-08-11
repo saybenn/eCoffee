@@ -32,7 +32,6 @@ const OrderListScreen = () => {
     if ((userInfo && !userInfo.isAdmin) || userInfo === null) {
       navigate("/login");
     }
-    console.log(userInfo);
     dispatch(listOrders(pageNumber));
 
     if (success) {
@@ -175,7 +174,7 @@ const OrderListScreen = () => {
                       )}
 
                       <td>
-                        <LinkContainer to={`/order/${order._id}`}>
+                        <LinkContainer to={`/order/review/${order._id}`}>
                           <Button variant="light" className="btn-sm">
                             Details
                           </Button>

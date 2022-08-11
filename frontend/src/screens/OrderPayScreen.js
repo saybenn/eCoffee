@@ -70,12 +70,9 @@ const PlaceOrderScreen = () => {
       setSdkReady(true);
     };
     if (paymentMethod === "Stripe") {
-      console.log(paymentMethod);
-
       stripeHandler();
     }
     if (paymentMethod === "PayPal") {
-      console.log(paymentMethod);
       addPayPalScript();
     } else {
       setSdkReady(true);
@@ -124,7 +121,7 @@ const PlaceOrderScreen = () => {
                         <Col md={2}>${item.price}</Col>
                         <Col md={1}>{item.qty}</Col>
 
-                        <Col className="d-flex justify-content-center" md={2}>
+                        <Col className="" md={2}>
                           {item.totalPrice
                             ? `$${item.totalPrice.toFixed(2)}`
                             : `$${item.price.toFixed(2)}`}

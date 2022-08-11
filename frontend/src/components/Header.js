@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import {
   Navbar,
@@ -8,12 +9,15 @@ import {
   NavDropdown,
   Offcanvas,
 } from "react-bootstrap";
-import { logout } from "../actions/userActions";
+import { getUserProfile, logout } from "../actions/userActions";
+import { useEffect } from "react";
 
 const Header = () => {
   const [show, setShow] = useState(false);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const userProfile = useSelector((state) => state.userProfile);
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
@@ -25,6 +29,18 @@ const Header = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  function isTokenExpired(token) {
+    const expiry = JSON.parse(atob(token.split(".")[1])).exp;
+    return Math.floor(new Date().getTime() / 1000) >= expiry;
+  }
+
+  if (userInfo) {
+    const tokenExp = isTokenExpired(userInfo.token);
+    if (tokenExp) {
+      dispatch(logout());
+      navigate("/login");
+    }
+  }
   return (
     <header>
       {" "}

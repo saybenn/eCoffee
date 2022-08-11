@@ -49,7 +49,6 @@ const addItemToCart = asyncHandler(async (req, res) => {
       res.json(user.cartItems);
     } catch (error) {
       res.status(400);
-      console.log(error);
       throw new Error("Addition to cart could not be made.");
     }
   }

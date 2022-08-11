@@ -14,9 +14,9 @@ const HorizontalCarousel = () => {
             alt="creamed coffees"
           />
         </div>
-        <div className="hero">
+        <div className="hero py-5">
           <h2>Coffee Shop Meets Blog Spot</h2>
-          <h1>Welcome To eCo</h1>
+          <h1 className="my-3">Welcome To eCo</h1>
 
           <Link to="/shop">
             <Button className="text-white" variant="outline-secondary">
@@ -34,9 +34,9 @@ const HorizontalCarousel = () => {
             alt="black coffee"
           />
         </div>
-        <div className="hero">
+        <div className="hero py-5">
           <h2>Coffee Shop Meets Blog Spot</h2>
-          <h1>Welcome To eCo</h1>
+          <h1 className="my-3">Welcome To eCo</h1>
           <Link to="/shop">
             <Button className="text-white" variant="outline-secondary">
               Shop With Us{" "}
@@ -54,9 +54,9 @@ const HorizontalCarousel = () => {
           />
         </div>
 
-        <div className="hero">
+        <div className="hero py-5">
           <h2>Coffee Shop Meets Blog Spot</h2>
-          <h1>Welcome To eCo</h1>
+          <h1 className="my-3">Welcome To eCo</h1>
           <Link to="/shop">
             <Button className="text-white" variant="outline-secondary">
               Shop With Us{" "}

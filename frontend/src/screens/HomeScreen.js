@@ -48,27 +48,29 @@ const HomeScreen = () => {
     <>
       <HorizontalCarousel />
       <Container>
-        <hr className="my-5" />
-        <Row className="d-flex align-items-center justify-content-between my-5">
-          <Col md={8}>
-            <h1 className="mt-5 mb-3">Featured Products</h1>
+        <Col className=" align-items-center justify-content-between my-5">
+          <Row md={8} className="my-5 flex justify-center items-center">
+            <h1 className="mt-5 mb-4 text-4xl text-center">
+              Our Featured Products
+            </h1>
             <TopProductsCarousel />
-          </Col>
-          <Col md={4}>
+          </Row>
+          <hr className="my-5" />
+          <Col md={7} className="justify-center items-center mx-auto">
             <div className="triangle">
               <FontAwesomeIcon icon={faCoffee} />{" "}
               <FontAwesomeIcon className="tree" icon={faTree} />{" "}
               <FontAwesomeIcon icon={faPen} />{" "}
             </div>
-            <h2 className="text-center my-3">Who We Are</h2>
-            <p className="mission-statement align-items-end">
+            <h2 className="text-center my-3 text-4xl">Who We Are</h2>
+            <p className="mission-statement align-items-end text-center">
               Our mission at eCo is to introduce customers to environmentally
               friendly goods for all their coffee needs and host a space for
               writers of all backgrounds to express and share their thoughts and
               passion with others.{" "}
             </p>
           </Col>
-        </Row>
+        </Col>
         <hr className="my-5" />
 
         {blogLoading ? (
@@ -77,7 +79,7 @@ const HomeScreen = () => {
           <Message variant="danger">{blogError}</Message>
         ) : (
           <Row className="my-5">
-            <h1 className="mt-5 mb-3">Top Blog Posts</h1>
+            <h1 className="mt-5 mb-3 text-3xl">Top Blog Posts</h1>
             <Col>
               {blogs &&
                 blogs

@@ -167,7 +167,11 @@ const ProfileScreen = () => {
                     ></Form.Control>
                   </Form.Group>
                   <Row>
-                    <Col className="mt-3 d-flex align-items-center" md={5}>
+                    <Col
+                      className="mt-3 d-flex align-items-center"
+                      lg={6}
+                      md={12}
+                    >
                       <Tippy
                         content="The Author role allows users to contribute their own blog post to the community. Requests must be approved by an Administrator."
                         placement="top"
@@ -194,7 +198,7 @@ const ProfileScreen = () => {
                         </Button>
                       )}
                     </Col>
-                    <Col className="mt-3" md={5}>
+                    <Col className="mt-3" lg={6} md={12}>
                       {!editState && (
                         <Button onClick={toggleEdit} variant="primary">
                           Update Profile
