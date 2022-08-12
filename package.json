@@ -9,7 +9,7 @@
     "server": "nodemon backend/server",
     "client": "npm start --prefix frontend",
     "build": "\"npm install\" \"npm run build --prefix frontend\"",
-    "prod": "\"npm run server\" \"npm run build --prefix frontend\"",
+    "prod": "\"npm run build --prefix frontend\"",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "data:import": "node backend/seeder",
     "data:destroy": "node backend/seeder -d",
